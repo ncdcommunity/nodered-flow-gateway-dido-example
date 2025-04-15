@@ -1,0 +1,399 @@
+[
+    {
+        "id": "399655ab8fa6067a",
+        "type": "tab",
+        "label": "DIDO Example",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "216530c363de7a1b",
+        "type": "inject",
+        "z": "399655ab8fa6067a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 300,
+        "wires": [
+            [
+                "d593608e5ed30ada"
+            ]
+        ]
+    },
+    {
+        "id": "d593608e5ed30ada",
+        "type": "exec",
+        "z": "399655ab8fa6067a",
+        "command": "cat /dev/input/event3",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Check DI 2",
+        "x": 350,
+        "y": 300,
+        "wires": [
+            [
+                "2880a5af86f724f4"
+            ],
+            [
+                "2880a5af86f724f4"
+            ],
+            [
+                "2880a5af86f724f4"
+            ]
+        ]
+    },
+    {
+        "id": "2880a5af86f724f4",
+        "type": "function",
+        "z": "399655ab8fa6067a",
+        "name": "function 8",
+        "func": "// var di1_val = msg.payload[20];\nmsg.payload = {\n    di1: msg.payload[20],\n};\n\nmsg.payload = msg.payload[20];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 300,
+        "wires": [
+            [
+                "ff7d9dddffe79b7c"
+            ]
+        ]
+    },
+    {
+        "id": "ff7d9dddffe79b7c",
+        "type": "debug",
+        "z": "399655ab8fa6067a",
+        "name": "debug 44",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d350808fde54c058",
+        "type": "inject",
+        "z": "399655ab8fa6067a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "9e7710dbf62515b4"
+            ]
+        ]
+    },
+    {
+        "id": "9e7710dbf62515b4",
+        "type": "exec",
+        "z": "399655ab8fa6067a",
+        "command": "cat /dev/input/event2",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Check DI 1",
+        "x": 350,
+        "y": 200,
+        "wires": [
+            [
+                "2427cd745c072a60"
+            ],
+            [
+                "2427cd745c072a60"
+            ],
+            [
+                "2427cd745c072a60"
+            ]
+        ]
+    },
+    {
+        "id": "2427cd745c072a60",
+        "type": "function",
+        "z": "399655ab8fa6067a",
+        "name": "function 9",
+        "func": "// var di2_val = msg.payload[20];\n// msg.payload = {\n//     di2: msg.payload[20]\n// };\n\nmsg.payload = msg.payload[20];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 200,
+        "wires": [
+            [
+                "cb6695f31f6e3066"
+            ]
+        ]
+    },
+    {
+        "id": "cb6695f31f6e3066",
+        "type": "debug",
+        "z": "399655ab8fa6067a",
+        "name": "debug 45",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1119eae710be0f4e",
+        "type": "comment",
+        "z": "399655ab8fa6067a",
+        "name": "You will need to add node-red to input group to allow read. SSH into the gateway and send the command: sudo adduser ncdio input",
+        "info": "",
+        "x": 500,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "f0e5679a6f237e30",
+        "type": "inject",
+        "z": "399655ab8fa6067a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 680,
+        "wires": [
+            [
+                "f3287b479568dddb"
+            ]
+        ]
+    },
+    {
+        "id": "52358ab250e46f2b",
+        "type": "inject",
+        "z": "399655ab8fa6067a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 740,
+        "wires": [
+            [
+                "69328aa5938f6631"
+            ]
+        ]
+    },
+    {
+        "id": "f3287b479568dddb",
+        "type": "exec",
+        "z": "399655ab8fa6067a",
+        "command": "echo none > /sys/class/leds/do2/trigger; echo 1 > /sys/class/leds/do2/brightness",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "DO2 High",
+        "x": 360,
+        "y": 680,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "69328aa5938f6631",
+        "type": "exec",
+        "z": "399655ab8fa6067a",
+        "command": "echo none > /sys/class/leds/do2/trigger; echo 0 > /sys/class/leds/do2/brightness",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "DO2 Low",
+        "x": 360,
+        "y": 740,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "83ae47228b5996ec",
+        "type": "inject",
+        "z": "399655ab8fa6067a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 500,
+        "wires": [
+            [
+                "bdcc939e9106fab0"
+            ]
+        ]
+    },
+    {
+        "id": "7987214335c78218",
+        "type": "inject",
+        "z": "399655ab8fa6067a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 560,
+        "wires": [
+            [
+                "73c644f04682748e"
+            ]
+        ]
+    },
+    {
+        "id": "bdcc939e9106fab0",
+        "type": "exec",
+        "z": "399655ab8fa6067a",
+        "command": "echo none > /sys/class/leds/do1/trigger; echo 1 > /sys/class/leds/do1/brightness",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "DO1 High",
+        "x": 360,
+        "y": 500,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "73c644f04682748e",
+        "type": "exec",
+        "z": "399655ab8fa6067a",
+        "command": "echo none > /sys/class/leds/do1/trigger; echo 0 > /sys/class/leds/do1/brightness",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "DO1 Low",
+        "x": 360,
+        "y": 560,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    }
+]
